@@ -59,7 +59,8 @@ def calc(x0,A, H, X, e, alpha,A_const_eq,B_const_eq,C_const_eq,d,w,n):
   # line equaiton intersection with vector
     xline = X[i][0] + (A[i][0] * t)
     yline = X[i][1] + (A[i][1] * t)
-    zline = X[i][2] + (A[i][2] * t)
+    #zline = X[i][2] + (A[i][2] * t)
+    zline=w
     list_taghato+=[[xline,yline,zline]]
   matris_mojaverat=[]
   for i in range(0,n-1):
@@ -73,7 +74,7 @@ def calc(x0,A, H, X, e, alpha,A_const_eq,B_const_eq,C_const_eq,d,w,n):
 def dist(A,B):
   dist=math.sqrt(math.pow(A[0]-B[0],2)+math.pow(A[1]-B[1],2)+math.pow(A[2]-B[2],2))
   return dist
-  
+
 ################################################################ data vorodi #############
 from random import seed
 from random import randint
@@ -96,14 +97,15 @@ def vrodi():
     Xf=[]
     for _ in range(n):
         li=[]
-        for i in range(3):
+        for i in range(2):
             li+=[randint(0, 100)]
+        li+=[0]
         Xf+=[li]
         li=[]
 
     A_size=[]
     for _ in range(n):
-        val=randint(2, 100)
+        val=randint(10, 100)
         A_size+=[val]
     H=[]
     for i in range(n):
